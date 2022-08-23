@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Uol</title>
+</head>
+<body>
+    <div id="login">
+        <img src="./imgs/logo1.png" alt="logo">
+        <input id="userName" type="text" placeholder="Digite seu nome">
+        <button onclick="logarUsuario()">Entrar</button>
+    </div>
+    <div class="off" id="menu">
+        <div class="closer"></div>
+        <div class="inner">
+            <div class="title">
+                <section>Escolha um contato para enviar mensagem:</section>
+                <ul id="participants">
+                </ul>
+            </div>
+            <div class="title">
+                <section>Escolha a visibilidade:</section>
+                <ul id="method">
+                    <li class="public" onclick="definirPublico()">
+                        <div>
+                            <ion-icon name="lock-open"></ion-icon><span>Público</span>
+                        </div>
+                        <ion-icon name="checkmark-sharp"></ion-icon>
+                    </li>
+                    <li class="private" onclick="definirPrivado()">
+                        <div>
+                            <ion-icon name="lock-closed"></ion-icon><span>Privado</span>
+                        </div>
+                        <ion-icon name="checkmark-sharp"></ion-icon>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="off" id="uol">
+        <header>
+            <img src="./imgs/logo1.png" alt="logo">
+            <ion-icon onclick="alternarMenu()" name="people"></ion-icon>
+        </header>
+        <div class="chatArea">
+            <ul id="chat">
+                
+            </ul>
+        </div>
+        <footer>
+            <input type="text" placeholder="Escreva aqui...">
+            <ion-icon name="paper-plane-outline"></ion-icon>
+        </footer>
+    </div>
+</body>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</html>

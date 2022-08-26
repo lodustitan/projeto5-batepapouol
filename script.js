@@ -119,7 +119,14 @@ function carregarUsuarios(){
             span = criarHTML("span"),
             ionChecked = criarHTML('ion-icon');
         
-        span.onclick = event =>{ user['to'] = "Todos"; selecionarParticipanteMenu(event)}
+        if(user.to === "Todos"){
+            li.classList.add("selected")
+        }
+        span.onclick = event =>{ 
+            user['to'] = "Todos"; 
+            removerParticipantesMarcados("Todos");
+            document.querySelector("footer .footerSendMsg span").textContent = "";
+        }
         span.textContent = "Todos";
         ion.name = "people";
         ionChecked.name = "checkmark-sharp";
@@ -137,7 +144,15 @@ function carregarUsuarios(){
                     span_p = criarHTML("span"),
                     ionChecked_p = criarHTML('ion-icon');
 
-                span_p.onclick = event =>{ user['to'] = per.name; selecionarParticipanteMenu(event) }
+                span_p.onclick = event =>{ 
+                    user['to'] = per.name; 
+                    removerParticipantesMarcados(event); 
+                    li_p.classList.add("selected");
+                    document.querySelector("footer .footerSendMsg span").textContent = "Enviando para "+per.name+" (Privado)";
+                }
+                if(user.to === per.name){
+                    li_p.classList.add("selected")
+                }
                 span_p.textContent = per.name;
                 ion_p.name = "person-circle-sharp";
                 ionChecked_p.name = "checkmark-sharp";
@@ -167,11 +182,10 @@ function definirPublico(){
     document.querySelector("#method .public").classList.toggle("selected");
     user['type'] = "message";
 }
-function selecionarParticipanteMenu(e){
+function removerParticipantesMarcados(){
     document.querySelectorAll("#participants li.selected").forEach(a=>{
         a.classList.remove("selected");
     });
-    e.target.parentNode.parentNode.classList.toggle("selected");
 }
 
 // listeners

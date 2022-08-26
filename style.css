@@ -68,6 +68,11 @@ body{
     width: 70%; height: 100%;
     background-color: #FFF;
 }
+#menu .inner .title:nth-child(1) {
+    max-height: 70%;
+    overflow-x: scroll;
+}
+
 #menu .inner .title section {
     text-align: center;
     font-weight: 700;
@@ -104,8 +109,9 @@ body{
 header{
     display: flex !important; 
     justify-content: space-between; align-items: center;
-    width: 100%; height: 10%;
+    width: 100%; height: 10vh;
     padding: 0 10px !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
 }
 header ion-icon {
     font-size: 64px;
@@ -113,13 +119,14 @@ header ion-icon {
 
 
 .chatArea{
-    height: 80%;
+    height: 80vh;
     overflow-y: scroll;
 }
 .chatArea #chat{}
 .chatArea #chat li{
     margin: 4px 0;
     padding: 16px;
+    word-wrap: break-word;
 }
 .chatArea #chat li.msg_status{ background-color: #DCDCDC;}
 .chatArea #chat li.msg_private{ background-color: #FFDEDE;}
@@ -140,7 +147,8 @@ footer{
     display: flex !important;
     justify-content: space-around; 
     align-items: center;
-    height: 10%;
+    height: 10vh;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
 }
 footer ion-icon{
     font-size: 2rem;
@@ -149,6 +157,13 @@ footer input{
     width: 80%; height: 60%;
     font-size: 1.5rem;
     outline: none; border: none;
+}
+footer .footerSendMsg {
+    display: flex;
+    flex-direction: column;
+}
+footer .footerSendMsg span {
+    font-weight: 300;
 }
 footer input::placeholder{
     font-size: 1.5rem;

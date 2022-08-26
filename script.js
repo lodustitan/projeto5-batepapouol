@@ -148,7 +148,11 @@ function carregarUsuarios(){
                     user['to'] = per.name; 
                     removerParticipantesMarcados(event); 
                     li_p.classList.add("selected");
-                    document.querySelector("footer .footerSendMsg span").textContent = "Enviando para "+per.name+" (Privado)";
+                    let isPrivate = (user.type === 'private_message')? true: false,
+                        msgIsPrivate= "";
+
+                    if(isPrivate){ msgIsPrivate = "(Private)" } else { msgIsPrivate = "(Publico)" }
+                    document.querySelector("footer .footerSendMsg span").textContent = "Enviando para "+per.name+" "+msgIsPrivate;
                 }
                 if(user.to === per.name){
                     li_p.classList.add("selected")
@@ -174,6 +178,7 @@ function definirPrivado(){
     });
     document.querySelector("#method .private").classList.toggle("selected");
     user['type'] = "private_message";
+    document.querySelector("footer .footerSendMsg span").textContent = "Enviando para "+user["to"]+ " (Private)";
 }
 function definirPublico(){
     document.querySelectorAll("#method li.selected").forEach(a=>{
@@ -181,6 +186,7 @@ function definirPublico(){
     });
     document.querySelector("#method .public").classList.toggle("selected");
     user['type'] = "message";
+    document.querySelector("footer .footerSendMsg span").textContent = "Enviando para "+user["to"]+ " (Publico)";
 }
 function removerParticipantesMarcados(){
     document.querySelectorAll("#participants li.selected").forEach(a=>{

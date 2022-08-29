@@ -70,7 +70,7 @@ body{
 }
 #menu .inner .title:nth-child(1) {
     max-height: 70%;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 #menu .inner .title section {
